@@ -1,17 +1,40 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getAllProductsByTitle } from "../../../../utils/dataUtils";
 
 const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [products, setProducts] = useState([]);
+  const [showResults, setShowResults] = useState(false);
 
   const handleSearch = () => {
-    // This is where you would handle the search logic
     console.log("Searching for:", searchQuery);
-    // For the hackathon MVP, you could simply scroll to a results section
     document
       .getElementById("search-results-section")
       ?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    if (searchQuery) {
+      setProducts(getAllProductsByTitle(searchQuery) || []);
+      setShowResults(true);
+    } else {
+      setProducts([]);
+      setShowResults(false);
+    }
+  }, [searchQuery]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        !event.target.closest("#search-results-dropdown") &&
+        !event.target.closest("#search-input")
+      ) {
+        setShowResults(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
   return (
     <section className="relative w-full min-h-screen flex flex-col justify-center items-center text-center text-white overflow-hidden">
@@ -39,14 +62,14 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 px-6 sm:px-12  w-full flex flex-col items-center justify-center pt-20 pb-40">
+      <div className="relative z-20 px-6 sm:px-12 w-full flex flex-col items-center justify-center pt-20 pb-40">
         <h3 className="text-lg sm:text-lg mb-4 text-gray-200 font-inter animate-wave animate-ripple inline-block">
           <span className="inline-block animate-pulse-fast">💧</span> "Every
           Drop Counts"
         </h3>
 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in-up delay-200 w-full">
-          KNOW INDIA’S <br></br>
+          KNOW INDIA’S <br />
           WATER IMPACT
         </h1>
 
@@ -57,9 +80,10 @@ const HeroSection = () => {
         </p>
 
         {/* Search Bar & CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full max-w-xl animate-fade-in-up delay-400">
+        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 w-full max-w-xl animate-fade-in-up delay-400 relative">
           <div className="relative w-full">
             <input
+              id="search-input"
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -67,7 +91,11 @@ const HeroSection = () => {
                 if (e.key === "Enter") handleSearch();
               }}
               placeholder="e.g., Rice, Cotton, Smartphone..."
-              className="w-full bg-[rgba(0, 4, 51, 0.5)] px-6 py-4 pr-16 rounded-full text-white font-medium placeholder-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.6),0_4px_6px_-2px_rgba(0,0,0,0.5)]"
+              className="w-full bg-[rgba(0,4,51,0.5)] px-6 py-4 pr-16 rounded-full text-white font-medium placeholder-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.6),0_4px_6px_-2px_rgba(0,0,0,0.5)]"
+              autoComplete="off"
+              onFocus={() => {
+                if (products.length > 0) setShowResults(true);
+              }}
             />
             <button
               onClick={handleSearch}
@@ -75,12 +103,74 @@ const HeroSection = () => {
             >
               Search
             </button>
+
+            {/* Search Results Dropdown */}
+            <div
+              id="search-results-dropdown"
+              className={`
+                absolute top-full left-0 mt-2 w-full max-w-2xl bg-white rounded-lg shadow-xl text-primary-dark
+                overflow-hidden
+                transition-all duration-300 ease-in-out
+                
+                ${
+                  showResults
+                    ? "opacity-100 scale-y-100 pointer-events-auto"
+                    : "opacity-0 scale-y-0 pointer-events-none"
+                }
+              `}
+              style={{ transformOrigin: "top", zIndex: 20 }}
+            >
+              {products.length > 0 ? (
+                <ul className="divide-y divide-gray-200 max-h-80 overflow-y-auto">
+                  {products.map((product) => (
+                    <li
+                      key={product.id}
+                      className="px-6 py-4 cursor-pointer hover:bg-primary-light/10 transition-colors duration-200 flex flex-col"
+                      onClick={() => {
+                        setSearchQuery(product.title);
+                        setShowResults(false);
+                      }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-lg font-semibold">
+                          {product.title}
+                        </h4>
+                        {product.category && (
+                          <span className="text-xs font-medium text-primary-mid bg-primary-light/20 px-2 py-0.5 rounded-full">
+                            {product.category}
+                          </span>
+                        )}
+                      </div>
+                      {product.description && (
+                        <p className="mt-1 text-sm text-gray-600 text-left">
+                          {product.description}
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="p-4 text-center text-gray-500">
+                  No results found.
+                </p>      
+              )}
+            </div>
           </div>
         </div>
 
+        {/* Secondary CTA */}
         <div className="mt-8 animate-fade-in-up delay-500">
-          {/* Secondary CTA */}
-          <button className="px-8 py-4 rounded-full font-bold text-lg text-white border-2 border-white transform transition-all duration-300 hover:scale-105 hover:bg-white hover:text-blue-900 hover:shadow-xl cursor-pointer">
+          <button
+            disabled={showResults}
+            className={`
+    px-8 py-4 rounded-full font-bold text-lg border-2 transition-all duration-300 relative
+    ${
+      showResults
+        ? "bg-gray-400 border-gray-400 text-gray-700 cursor-not-allowed pointer-events-none hover:none shadow-none z-0 hidden"
+        : "text-white border-white hover:scale-105 hover:bg-white hover:text-blue-900 hover:shadow-xl cursor-pointer z-1 block"
+    }
+  `}
+          >
             Calculate My Impact
           </button>
         </div>

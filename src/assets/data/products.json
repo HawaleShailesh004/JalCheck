@@ -40,7 +40,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 70,
     "impactNote": "Major water consumer in Indian agriculture, critical for food security",
-    "confidence": "high"
+    "confidence": "high",
+    "imageUrl": "images/rice-paddy.jpg"
   },
   {
     "title": "Wheat",
@@ -83,7 +84,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 55,
     "impactNote": "Essential for food security in northern India with moderate water footprint",
-    "confidence": "high"
+    "confidence": "high",
+    "imageUrl": "images/wheat.jpg"
   },
   {
     "title": "Milk (Cow's)",
@@ -125,7 +127,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 60,
     "impactNote": "Crucial protein source with relatively efficient water use in Indian context",
-    "confidence": "high"
+    "confidence": "high",
+    "imageUrl": "images/milk-cows.jpg"
   },
   {
     "title": "Sugar (Refined Cane Sugar)",
@@ -167,7 +170,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 20,
     "impactNote": "High water footprint crop, major consumer of irrigation water",
-    "confidence": "high"
+    "confidence": "high",
+    "imageUrl": "images/sugar-refined-cane-sugar.jpg"
   },
   {
     "title": "Chicken Meat",
@@ -209,7 +213,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 4,
     "impactNote": "High water footprint protein source, growing consumption in urban areas",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/chicken-meat.jpg"
   },
   {
     "title": "Eggs (Chicken)",
@@ -251,7 +256,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 3,
     "impactNote": "More water-efficient than meat but still significant footprint",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/eggs-chicken.jpg"
   },
   {
     "title": "Potatoes",
@@ -293,7 +299,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 25,
     "impactNote": "Highly water-efficient vegetable crop suitable for Indian conditions",
-    "confidence": "high"
+    "confidence": "high",
+    "imageUrl": "images/potatoes.jpg"
   },
   {
     "title": "Tomatoes",
@@ -335,7 +342,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 12,
     "impactNote": "Relatively water-efficient vegetable with high nutritional value",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/tomatoes.jpg"
   },
   {
     "title": "Lentils (Dal)",
@@ -377,7 +385,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 15,
     "impactNote": "Essential protein source for vegetarians, improves soil fertility",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/lentils-dal.jpg"
   },
   {
     "title": "Coffee (Roasted)",
@@ -419,7 +428,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 0.8,
     "impactNote": "Very high water footprint luxury beverage with growing consumption",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/coffee-roasted.jpg"
   },
   {
     "title": "Tea (Black/Green)",
@@ -461,7 +471,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 1,
     "impactNote": "High water footprint for India's most consumed beverage",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/tea-blackgreen.jpg"
   },
   {
     "title": "Bajra (Pearl Millet)",
@@ -503,7 +514,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 8,
     "impactNote": "Climate-resilient crop with very low water footprint",
-    "confidence": "high"
+    "confidence": "high",
+    "imageUrl": "images/bajra-pearl-millet.jpg"
   },
   {
     "title": "Maize (Corn)",
@@ -545,7 +557,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 6,
     "impactNote": "Moderate water footprint with multiple uses in agriculture",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/maize-corn.jpg"
   },
   {
     "title": "Chickpea (Chana)",
@@ -587,7 +600,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 8,
     "impactNote": "Moderate water footprint pulse with soil enrichment benefits",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/chickpea-chana.jpg"
   },
   {
     "title": "Groundnut (Peanut)",
@@ -629,7 +643,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 3,
     "impactNote": "Moderate water footprint oilseed with high nutritional value",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/groundnut-peanut.jpg"
   },
   {
     "title": "Mustard Oil",
@@ -671,7 +686,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 4,
     "impactNote": "Traditional cooking medium with moderate environmental impact",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/mustard-oil.jpg"
   },
   {
     "title": "Apples",
@@ -713,7 +729,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 2,
     "impactNote": "Moderate water footprint fruit with limited growing regions",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/apples.jpg"
   },
   {
     "title": "Bananas",
@@ -755,7 +772,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 8,
     "impactNote": "Popular affordable fruit with reasonable water efficiency",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/bananas.jpg"
   },
   {
     "title": "Mangoes",
@@ -797,7 +815,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 6,
     "impactNote": "Beloved seasonal fruit with moderate environmental impact",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/mangoes.jpg"
   },
   {
     "title": "Onions",
@@ -839,7 +858,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 15,
     "impactNote": "Essential ingredient with low environmental impact",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/onions.jpg"
   },
   {
     "title": "Garlic (Fresh)",
@@ -881,7 +901,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 2,
     "impactNote": "High-value crop with moderate water footprint per unit weight",
-    "confidence": "low"
+    "confidence": "low",
+    "imageUrl": "images/garlic-fresh.jpg"
   },
   {
     "title": "Green Chillies",
@@ -923,7 +944,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 3,
     "impactNote": "Low water footprint spice essential for Indian cooking",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/green-chillies.jpg"
   },
   {
     "title": "Turmeric",
@@ -965,7 +987,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 1.5,
     "impactNote": "High-value medicinal spice with moderate environmental impact",
-    "confidence": "low"
+    "confidence": "low",
+    "imageUrl": "images/turmeric.jpg"
   },
   {
     "title": "Black Pepper",
@@ -1007,7 +1030,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 0.5,
     "impactNote": "High-value export spice with moderate water footprint",
-    "confidence": "low"
+    "confidence": "low",
+    "imageUrl": "images/black-pepper.jpg"
   },
   {
     "title": "Rice Flour",
@@ -1049,7 +1073,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 5,
     "impactNote": "Processed rice product with additional water requirements",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/rice-flour.jpg"
   },
   {
     "title": "Wheat Flour",
@@ -1091,7 +1116,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 45,
     "impactNote": "Essential processed grain with moderate processing water footprint",
-    "confidence": "high"
+    "confidence": "high",
+    "imageUrl": "images/wheat-flour.jpg"
   },
   {
     "title": "Bread (from Wheat)",
@@ -1133,7 +1159,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 8,
     "impactNote": "Processed food with additional manufacturing water requirements",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/bread-from-wheat.jpg"
   },
   {
     "title": "Edible Oil (General)",
@@ -1175,7 +1202,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 15,
     "impactNote": "High consumption cooking ingredient with significant water footprint",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/edible-oil-general.jpg"
   },
   {
     "title": "Fish (Aquaculture)",
@@ -1217,7 +1245,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 5,
     "impactNote": "Moderate water footprint protein source from sustainable aquaculture",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/fish-aquaculture.jpg"
   },
   {
     "title": "Mutton",
@@ -1259,7 +1288,8 @@
     "countrySpecific": false,
     "avgIndianConsumption": 1.5,
     "impactNote": "Very high water footprint meat with limited consumption",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/mutton.jpg"
   },
   {
     "title": "Pork",
@@ -1302,7 +1332,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 0.5,
     "impactNote": "High water footprint due to feed crop irrigation and processing needs",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/pork.jpg"
   },
   {
     "title": "Butter",
@@ -1344,7 +1375,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 3.2,
     "impactNote": "Dairy processing requires substantial water for cleaning and cooling",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/butter.jpg"
   },
   {
     "title": "Cheese",
@@ -1387,7 +1419,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 2.8,
     "impactNote": "High water requirement for milk production and cheese processing",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/cheese.jpg"
   },
   {
     "title": "Cotton T-shirt",
@@ -1429,7 +1462,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 8,
     "impactNote": "Cotton cultivation in India heavily dependent on irrigation water",
-    "confidence": "high"
+    "confidence": "high",
+    "imageUrl": "images/cotton-t-shirt.jpg"
   },
   {
     "title": "Jeans (Cotton)",
@@ -1472,7 +1506,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 2,
     "impactNote": "Denim processing requires significant water for dyeing and finishing",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/jeans-cotton.jpg"
   },
   {
     "title": "Cotton (Lint)",
@@ -1514,7 +1549,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 15,
     "impactNote": "Major water consumer in India's agriculture sector",
-    "confidence": "high"
+    "confidence": "high",
+    "imageUrl": "images/cotton-lint.jpg"
   },
   {
     "title": "Cotton Swabs",
@@ -1545,7 +1581,7 @@
       },
       {
         "name": "Reusable silicone swabs",
-        "savings": 3.0
+        "savings": 3
       }
     ],
     "sizeCategory": "small",
@@ -1556,7 +1592,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 150,
     "impactNote": "Individual impact low but high volume usage increases total footprint",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/cotton-swabs.jpg"
   },
   {
     "title": "Diapers",
@@ -1598,7 +1635,8 @@
     "countrySpecific": true,
     "avgIndianConsumption": 800,
     "impactNote": "High volume usage by families with infants increases overall impact",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/diapers.jpg"
   },
   {
     "title": "Brick",
@@ -1629,7 +1667,7 @@
       },
       {
         "name": "Compressed earth blocks",
-        "savings": 2.0
+        "savings": 2
       }
     ],
     "sizeCategory": "small",
@@ -1640,6 +1678,7 @@
     "countrySpecific": true,
     "avgIndianConsumption": 2000,
     "impactNote": "Large construction projects require millions of bricks, amplifying water impact",
-    "confidence": "medium"
+    "confidence": "medium",
+    "imageUrl": "images/brick.jpg"
   }
 ]

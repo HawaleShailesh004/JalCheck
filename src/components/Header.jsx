@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
+import { Link, NavLink } from "react-router";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,9 +31,9 @@ const Header = () => {
           ? "bg-opacity-80 backdrop-blur-md shadow-2xl shadow-primary-dark bg-[rgba(255,255,255,0.8)]"
           : "bg-opacity-100 bg-white"
       }`}
-
-      style={{ boxShadow: isScrolled ? "0 10px 20px -5px rgba(0, 0, 0, 0.4)" : "none" }}
-
+      style={{
+        boxShadow: isScrolled ? "0 10px 20px -5px rgba(0, 0, 0, 0.4)" : "none",
+      }}
     >
       {/* Logo */}
       <div className="flex items-center gap-2">
@@ -45,17 +46,37 @@ const Header = () => {
 
       {/* Navigation Links */}
       <ul className=" justify-center items-center gap-6 text-lg font-medium text-blue-900 sm:flex hidden">
-        <li className="cursor-pointer hover:text-blue-500 transition-colors duration-200">
-          Home
+        <li className="cursor-pointer hover:text-primary-light transition-all duration-200 hover:border-b-2 hover:border-primary-light">
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "text-primary-light border-b-2 border-b-primary-light" : "")}
+          >
+            Home
+          </NavLink>
         </li>
         <li className="cursor-pointer hover:text-blue-500 transition-colors duration-200">
-          Browse
+          <NavLink
+            to="/browse"
+            className={({ isActive }) => (isActive ? "text-primary-light border-b-2 border-b-primary-light" : "")}
+          >
+            Browse
+          </NavLink>
         </li>
-        <li className="cursor-pointer hover:text-blue-500 transition-colors duration-200">
-          Assessment
+        <li className="cursor-pointer hover:text-primary-light transition-colors duration-200">
+          <NavLink
+            to="/assessment"
+            className={({ isActive }) => (isActive ? "text-primary-light border-b-2 border-b-primary-light" : "")}
+          >
+            Assessment
+          </NavLink>
         </li>
-        <li className="cursor-pointer hover:text-blue-500 transition-colors duration-200">
-          About
+        <li className="cursor-pointer hover:text-primary-light transition-colors duration-200">
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "text-primary-light border-b-2 border-b-primary-light" : "")}
+          >
+            About
+          </NavLink>
         </li>
       </ul>
 

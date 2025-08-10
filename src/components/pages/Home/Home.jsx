@@ -13,7 +13,7 @@ import {
 const Home = () => {
   return (
     <>
-      <div className="container mx-auto flex flex-col gap-5">
+      <div className="container mx-auto flex flex-col gap-5 mt-10">
         <HeroSection />
         <ImpactStatsCards />
         <ShockingFootprints />
