@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 
@@ -6,27 +6,40 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   // Function to toggle the mobile menu
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
   return (
-    <nav className="w-full h-auto flex justify-between items-center py-4 px-10 border-b-2 border-blue-500 bg-white shadow-xl">
+    <nav
+      className={`w-full h-20 flex justify-between items-center py-2 px-10  shadow-xs shadow-primary-light border-none absolute fixed top-0 left-0 z-50 ${
+        isScrolled
+          ? "bg-opacity-80 backdrop-blur-md shadow-2xl shadow-primary-dark bg-[rgba(255,255,255,0.8)]"
+          : "bg-opacity-100 bg-white"
+      }`}
+
+      style={{ boxShadow: isScrolled ? "0 10px 20px -5px rgba(0, 0, 0, 0.4)" : "none" }}
+
+    >
       {/* Logo */}
       <div className="flex items-center gap-2">
         <img
           src="/images/jalCheck-logo.png"
           alt="Jal Check"
           className=" h-12 sm:h-15 w-auto cursor-pointer"
-        />
-      </div>
-
-      {/* Search Box */}
-      <div className=" flex justify-center">
-        <input
-          type="text"
-          placeholder="Search..."
-          className="sm:w-90 w-60 px-4 py-2 border border-blue-300 rounded-3xl focus:outline-none focus:ring-1 focus:ring-primary-dark shadow-sm"
         />
       </div>
 

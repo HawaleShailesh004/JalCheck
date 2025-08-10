@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Header } from "./components";
+import { Home } from "./components/pages";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -7,9 +9,12 @@ function App() {
       <header>
         <Header />
       </header>
-      <div className="flex w-full h-screen justify-center items-center">
-        Jal Check App
-      </div>
+      <main className="mt-10 mb-10">
+        <Home />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
