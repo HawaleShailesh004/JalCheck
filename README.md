@@ -1,4 +1,4 @@
-# 🌊 JalCheck – Track, Reduce & Rethink Your Water Footprint
+# 🌊 JalCheck - Track, Reduce & Rethink Your Water Footprint
 
 
 
