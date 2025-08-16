@@ -25,3 +25,4 @@ dist-ssr
 
 validate_products.py
 fetchProductImages.js
+addIds.js

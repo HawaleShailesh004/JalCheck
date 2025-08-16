@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
+ 
+  const hideButtons = useLocation().pathname === "/signup";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +51,11 @@ const Header = () => {
         <li className="cursor-pointer hover:text-primary-light transition-all duration-200 hover:border-b-2 hover:border-primary-light">
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? "text-primary-light border-b-2 border-b-primary-light" : "")}
+            className={({ isActive }) =>
+              isActive
+                ? "text-primary-light border-b-2 border-b-primary-light"
+                : ""
+            }
           >
             Home
           </NavLink>
@@ -57,7 +63,11 @@ const Header = () => {
         <li className="cursor-pointer hover:text-blue-500 transition-colors duration-200">
           <NavLink
             to="/browse"
-            className={({ isActive }) => (isActive ? "text-primary-light border-b-2 border-b-primary-light" : "")}
+            className={({ isActive }) =>
+              isActive
+                ? "text-primary-light border-b-2 border-b-primary-light"
+                : ""
+            }
           >
             Browse
           </NavLink>
@@ -65,7 +75,11 @@ const Header = () => {
         <li className="cursor-pointer hover:text-primary-light transition-colors duration-200">
           <NavLink
             to="/assessment"
-            className={({ isActive }) => (isActive ? "text-primary-light border-b-2 border-b-primary-light" : "")}
+            className={({ isActive }) =>
+              isActive
+                ? "text-primary-light border-b-2 border-b-primary-light"
+                : ""
+            }
           >
             Assessment
           </NavLink>
@@ -73,7 +87,11 @@ const Header = () => {
         <li className="cursor-pointer hover:text-primary-light transition-colors duration-200">
           <NavLink
             to="/about"
-            className={({ isActive }) => (isActive ? "text-primary-light border-b-2 border-b-primary-light" : "")}
+            className={({ isActive }) =>
+              isActive
+                ? "text-primary-light border-b-2 border-b-primary-light"
+                : ""
+            }
           >
             About
           </NavLink>
@@ -82,12 +100,22 @@ const Header = () => {
 
       {/* Auth Buttons */}
       <div className="justify-center items-center gap-4 sm:flex hidden">
-        <button className="px-4 py-2 text-blue-900 border border-blue-900 rounded-md hover:opacity-75 transition-all duration-200 cursor-pointer">
-          Login
-        </button>
-        <button className="px-4 py-2 bg-primary-light text-primary-dark rounded-md hover:opacity-75 transition-colors duration-200 cursor-pointer">
-          Signup
-        </button>
+        {!hideButtons && (
+          <div className="flex gap-3">
+            <Link
+              to={"/signup"}
+              className="px-4 py-2 text-blue-900 border border-blue-900 rounded-md hover:opacity-75 transition-all duration-200 cursor-pointer"
+            >
+              Login
+            </Link>
+            <Link
+              to={"/signup"}
+              className="px-4 py-2 bg-primary-light text-primary-dark rounded-mdsignup hover:opacity-75 transition-colors duration-200 cursor-pointer rounded-lg"
+            >
+              Signup
+            </Link>
+          </div>
+        )}
 
         {/* Profile Icon */}
         <div className="ml-4 hover:text-blue-500 cursor-pointer transition-colors duration-200">

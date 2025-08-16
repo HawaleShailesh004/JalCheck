@@ -4,11 +4,13 @@ import { Home } from "./components/pages";
 import Footer from "./components/Footer";
 import { RouterProvider } from "react-router-dom";
 import router from "./components/Router";
+import Todo from "./components/todo";
 
 function App() {
   return (
     <>
       <RouterProvider router={router} />
+      {/* <Todo /> */}
     </>
   );
 }

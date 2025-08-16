@@ -1,8 +1,10 @@
 import React from "react";
 import { FaWater, FaLeaf } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
 
 const CallToAction = () => {
+  const navigate = useNavigate();
   return (
     <section
       className="w-[95%] rounded-xl mb-10 mx-auto py-16 bg-gradient-to-br from-primary-dark via-primary-mid to-cyan-400 
@@ -26,7 +28,10 @@ const CallToAction = () => {
         {/* Heading */}
         <h2 className="text-4xl leading-tight">
           Start Making{" "}
-          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent font-extrabold uppercase">Water-Smart Choices</span> Today
+          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent font-extrabold uppercase">
+            Water-Smart Choices
+          </span>{" "}
+          Today
         </h2>
 
         {/* Subtext */}
@@ -38,11 +43,17 @@ const CallToAction = () => {
 
         {/* Buttons */}
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-white text-primary-dark font-semibold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform cursor-pointer">
+          <button
+            className="bg-white text-primary-dark font-semibold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform cursor-pointer"
+            onClick={() => navigate("/browse")}
+          >
             Explore Footprints
           </button>
-          <button className="border border-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-primary-dark transition-all cursor-pointer">
-            See Sustainable Swaps
+          <button
+            className="border border-white font-semibold px-6 py-3 rounded-full hover:bg-white hover:text-primary-dark transition-all cursor-pointer"
+            onClick={() => navigate("/assessment")}
+          >
+            Take Assessment
           </button>
         </div>
       </motion.div>

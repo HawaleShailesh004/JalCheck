@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { getAllProductsByTitle } from "../../../../utils/dataUtils";
+import { useNavigate } from "react-router";
 
 const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState([]);
   const [showResults, setShowResults] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSearch = () => {
     console.log("Searching for:", searchQuery);
@@ -127,6 +130,7 @@ const HeroSection = () => {
                       key={product.id}
                       className="px-6 py-4 cursor-pointer hover:bg-primary-light/10 transition-colors duration-200 flex flex-col"
                       onClick={() => {
+                        navigate(`/product-details/${product.title}`)
                         setSearchQuery(product.title);
                         setShowResults(false);
                       }}
@@ -152,7 +156,7 @@ const HeroSection = () => {
               ) : (
                 <p className="p-4 text-center text-gray-500">
                   No results found.
-                </p>      
+                </p>
               )}
             </div>
           </div>
@@ -161,6 +165,7 @@ const HeroSection = () => {
         {/* Secondary CTA */}
         <div className="mt-8 animate-fade-in-up delay-500">
           <button
+            onClick={() => navigate("/assessment")}
             disabled={showResults}
             className={`
     px-8 py-4 rounded-full font-bold text-lg border-2 transition-all duration-300 relative

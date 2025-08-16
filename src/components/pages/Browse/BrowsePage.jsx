@@ -8,22 +8,46 @@ import {
   getLowestProductsByFootprint,
 } from "../../../utils/dataUtils";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router";
 
 const BrowsePage = () => {
   const allProducts = getAllProducts();
+
+  const navigate = useNavigate();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [expandedCategories, setExpandedCategories] = useState({});
 
   // Filter products by search query (case insensitive, matches title or keywords)
+  // Utility: clean text for searching
+  const normalize = (str = "") => {
+    return str.toLowerCase().replace(/[^a-z0-9]/g, ""); // remove all non-alphanumeric chars
+  };
+
   const filteredProducts = useMemo(() => {
     if (!searchQuery.trim()) return allProducts;
-    const q = searchQuery.toLowerCase();
-    return allProducts.filter(
-      (p) =>
-        p.title.toLowerCase().includes(q) ||
-        p.keywords?.some((k) => k.toLowerCase().includes(q))
-    );
+
+    const q = normalize(searchQuery);
+
+    return allProducts
+      .map((p) => {
+        const titleNorm = normalize(p.title);
+        const keywordsNorm = (p.keywords || []).map((k) => normalize(k));
+        const descNorm = normalize(p.description);
+
+        // Priority-based matching
+        if (titleNorm.startsWith(q)) return { ...p, score: 1 };
+        if (titleNorm.includes(q)) return { ...p, score: 2 };
+
+        if (keywordsNorm.some((k) => k.startsWith(q)))
+          return { ...p, score: 3 };
+
+        if (keywordsNorm.some((k) => k.includes(q))) return { ...p, score: 4 };
+
+        return null;
+      })
+      .filter(Boolean)
+      .sort((a, b) => a.score - b.score);
   }, [searchQuery, allProducts]);
 
   // Group filtered products by category for "Browse by Category"
@@ -53,14 +77,10 @@ const BrowsePage = () => {
   };
 
   // Card click handler (replace with routing/navigation later)
-  const handleCardClick = (title) => alert(`Clicked on ${title}`);
+  const handleCardClick = (title) => navigate(`/product-details/${title}`);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 sm:px-12 py-12 min-h-screen">
-      <h1 className="text-4xl font-bold text-primary-dark mb-10 text-center">
-        Browse Water Footprint Products
-      </h1>
-
+    <section className="max-w-7xl mx-auto px-6 sm:px-12 py-12 min-h-screen mt-15">
       {/* Search Bar */}
       <div className="max-w-md mx-auto mb-12">
         <input
@@ -73,6 +93,45 @@ const BrowsePage = () => {
         />
       </div>
 
+      {/* Search Results */}
+      {searchQuery.trim() && filteredProducts.length > 0 && (
+        <section className="mb-16">
+          <h2 className="text-4xl font-semibold text-primary-dark mb-6">
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent font-extrabold uppercase">
+              Search Results
+            </span>
+          </h2>
+          <motion.div
+            className="flex space-x-6 overflow-x-auto no-scrollbar pb-4 overflow-y-hidden"
+            style={{ scrollSnapType: "x mandatory" }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: {
+                transition: { staggerChildren: 0.1 },
+              },
+            }}
+          >
+            {filteredProducts.map((product) => (
+              <motion.div
+                key={product.title}
+                className="flex-shrink-0 w-72"
+                style={{ scrollSnapAlign: "start" }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleCardClick(product.title)}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+              >
+                <BrowseProductCard product={product} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
+      )}
       {/* Popular Products */}
       {popularProducts.length > 0 && (
         <section className="mb-16">

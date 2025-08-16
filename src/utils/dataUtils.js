@@ -1,4 +1,4 @@
-import products from "../assets/data/products.json";
+import products from "../assets/data/products.js";
 
 // console.log(products);
 
@@ -39,4 +39,12 @@ export const getPopularProducts = (limit) => {
     .slice(0, limit);
 };
 
+export const getProductByTitle = (title) => {
+  return products.find(
+    (product) => product.title.toLowerCase() === title.toLowerCase()
+  );
+};
 
+export const getProductById = (id) => {
+  return products.find((product) => product.id === id);
+};
